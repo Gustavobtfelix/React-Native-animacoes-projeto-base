@@ -2,7 +2,7 @@ import card1 from '../../assets/card1.png';
 import card2 from '../../assets/card2.png';
 import card3 from '../../assets/card3.png';
 
-const itens = [
+const itens = [ //são as cartas na mão da medica
   {
     id: '1',
     imagem: card1,
