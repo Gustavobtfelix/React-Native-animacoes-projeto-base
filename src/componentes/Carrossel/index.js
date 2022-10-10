@@ -1,7 +1,26 @@
+import React, { useEffect, useRef } from "react";
 import { FlatList, Image, View } from "react-native";
 import styles from './styles';
 
 export function Carrossel({ data }){
+    const carrosselRef = useRef(); // faz referencia a flatList
+    
+    function alteraPosicaoObjeto(){
+        const [indice, setIndice] = useState(0);
+        if(indice < data.length -1){
+            setIndice(indice +1);
+        }
+        else {
+            setIndice(0);
+        }
+    }
+
+    useEffect(() => {
+        carrosselRef.current.scrollToIndex({ index: 0 })
+
+        const intervalo = setInterval
+    }, [])
+    
     return (
         <View style={styles.container} >
             <FlatList
@@ -16,6 +35,7 @@ export function Carrossel({ data }){
                   resizeMode="contain"
                 />
               )}
+              ref={carrosselRef}
             />
         </View>
     )
