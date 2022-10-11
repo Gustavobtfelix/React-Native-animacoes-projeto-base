@@ -1,25 +1,28 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FlatList, Image, View } from "react-native";
 import styles from './styles';
 
 export function Carrossel({ data }){
     const carrosselRef = useRef(); // faz referencia a flatList
+    const [indice, setIndice] = useState(0);
     
-    function alteraPosicaoObjeto(){
-        const [indice, setIndice] = useState(0);
-        if(indice < data.length -1){
+    function alteraPosicaoObjeto(){        
+        if(indice < data.length -1)
             setIndice(indice +1);
-        }
-        else {
+        else 
             setIndice(0);
-        }
     }
 
     useEffect(() => {
-        carrosselRef.current.scrollToIndex({ index: 0 })
+        carrosselRef.current.scrollToIndex({ index: indice })
 
-        const intervalo = setInterval
-    }, [])
+        const intervalo = setInterval(() => {
+            alteraPosicaoObjeto();
+        }, 2000)
+
+        return () => clearInterval(intervalo);
+
+    }, [indice])
     
     return (
         <View style={styles.container} >
@@ -28,10 +31,12 @@ export function Carrossel({ data }){
               horizontal
               showsHorizontalScrollIndicator={false}
               keyExtractor={item => item.id}
-              renderItem={({ item }) => (
+              renderItem={({ item, index }) => (
                 <Image
                   source={item.imagem}
-                  style={styles.image}
+                  style={[styles.image,
+                  index == data.length-1 ? {marginRight: 200} : null
+                ]}
                   resizeMode="contain"
                 />
               )}
