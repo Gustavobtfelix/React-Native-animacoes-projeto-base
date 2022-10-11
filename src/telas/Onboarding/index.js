@@ -11,6 +11,17 @@ export default function Onboarding({ navigation }) {
   const [fazerLogin, setFazerLogin] = useState(false);
   const [altura, setAltura] = useState(250);
 
+  const animacaoCustomizada = {
+    duration: 1000,
+    create: {
+      type: LayoutAnimation.Types.spring,
+      property: LayoutAnimation.Properties.scaleXY,
+      springDamping: 0.7
+    }
+  }
+
+  LayoutAnimation.configureNext(animacaoCustomizada);
+
   function avancar() {
     if (fazerLogin) {
       navigation.navigate('Principal');
