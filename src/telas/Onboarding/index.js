@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, Image, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, StatusBar, Image, TouchableOpacity, LayoutAnimation } from 'react-native';
 import FundoOndulado from '../../componentes/FundoOndulado';
 import { TelaDeFundo } from '../../componentes/TelaDeFundo';
 import { Formulario } from '../../componentes/Formulario';
@@ -16,6 +16,7 @@ export default function Onboarding({ navigation }) {
       navigation.navigate('Principal');
     } else {
       setAltura(400);
+      LayoutAnimation.linear();
       setFazerLogin(true);
     }
   }
