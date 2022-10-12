@@ -60,7 +60,13 @@ $ expo start
 
 
 
-Espero que você utilize ao máximo deste projeto para se aprimorar! E se quiser dar um salve, estou lá no LinkedIn [André Oliveira Cunha](https://www.linkedin.com/in/andr%C3%A9-oliveira-cunha-b26b3a156/). :wave: 
+## 📚 Amostra do projeto
+
+
+
+https://user-images.githubusercontent.com/90421959/195230664-574c5f5f-7f52-4249-81c1-fa98db445adc.mp4
+
+
 
 [nodejs]: https://nodejs.org/
 [expo]: https://docs.expo.dev/
